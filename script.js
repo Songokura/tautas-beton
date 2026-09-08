@@ -6,7 +6,7 @@
    ============================================================ */
 (function(){
 "use strict";
-var WA = "70000000000";               /* плейсхолдер номера, заменяется одной командой */
+var WA = "77007919107";               /* номер клиента */
 var RED = matchMedia("(prefers-reduced-motion: reduce)").matches;
 var HAS_IO = typeof IntersectionObserver === "function";
 var root = document.documentElement;
