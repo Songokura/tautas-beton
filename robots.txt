@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /_project/
 
-Sitemap: https://songokura.github.io/tautas-beton/sitemap.xml
+Sitemap: https://tautas-beton.kz/sitemap.xml

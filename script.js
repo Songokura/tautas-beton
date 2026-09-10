@@ -322,6 +322,24 @@ if (HAS_IO) {
   mark();
 })();
 
+/* ---------------- КОНВЕРСИИ GOOGLE ADS ----------------
+   Формы на сайте нет: целевых действий два - звонок и WhatsApp.
+   Метки задаются в index.html (window.ADS). Пока их нет - блок молчит. */
+function adsGoal(kind){
+  var A = window.ADS;
+  if (!A || !A.id || typeof window.gtag !== "function") return;
+  var lbl = kind === "call" ? A.call : A.wa;
+  if (!lbl) return;
+  window.gtag("event", "conversion", {send_to: A.id + "/" + lbl});
+}
+document.addEventListener("click", function(e){
+  var a = e.target && e.target.closest ? e.target.closest("a") : null;
+  if (!a) return;
+  var h = a.getAttribute("href") || "";
+  if (h.indexOf("tel:") === 0) adsGoal("call");
+  else if (h.indexOf("wa.me") > -1) adsGoal("wa");
+}, true);
+
 /* ---------------- СТАРТ ---------------- */
 snapshot();
 initLang();
