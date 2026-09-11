@@ -330,7 +330,7 @@ function adsGoal(kind){
   if (!A || !A.id || typeof window.gtag !== "function") return;
   var lbl = kind === "call" ? A.call : A.wa;
   if (!lbl) return;
-  window.gtag("event", "conversion", {send_to: A.id + "/" + lbl});
+  window.gtag("event", "conversion", {send_to: A.id + "/" + lbl, value: 1.0, currency: "USD"});
 }
 document.addEventListener("click", function(e){
   var a = e.target && e.target.closest ? e.target.closest("a") : null;
